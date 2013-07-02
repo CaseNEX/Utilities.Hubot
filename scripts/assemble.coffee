@@ -9,6 +9,7 @@
 #
 # Commands:
 #   "hubot assemble" will post an assemble gif
+#   "hubot online assemble" will remind users to update their dev status
 
 assembles = [
     "http://stream1.gifsoup.com/view1/1102847/admin-team-assemble-o.gif",
@@ -29,3 +30,6 @@ module.exports = (robot) ->
         assemble = msg.random assembles
         msg.send assemble
         msg.send "@all Dev Team, ASSEMBLE!"
+
+  robot.respond /online assemble/i, (msg) ->
+        msg.send "@all online assemble today, please update http://milestones.datacation.net"
