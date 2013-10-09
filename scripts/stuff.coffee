@@ -43,13 +43,14 @@ module.exports = (robot) ->
 
     robot.respond /return (.*)$/i, (msg) ->
         variableName = msg.match[1]
-        user = robot.brain.data.username
-        pass = robot.brain.data.pass
-        auth = 'Basic ' + new Buffer(user + ':' + pass).toString('base64')
-        msg.http(urls[variableName] + '?room=' + (msg.message.room.replace("_", "+")))
-            .headers(Authorization: auth)
-            .post() (err, res, body) ->
-                msg.send err if err
+        if urls[variableName]
+            user = robot.brain.data.username
+            pass = robot.brain.data.pass
+            auth = 'Basic ' + new Buffer(user + ':' + pass).toString('base64')
+            msg.http(urls[variableName] + '?room=' + (msg.message.room.replace("_", "+")))
+                .headers(Authorization: auth)
+                .post() (err, res, body) ->
+                    msg.send err if err
 
     robot.respond /delete (.*)$/i, (msg) ->
         variableName = msg.match[1]
