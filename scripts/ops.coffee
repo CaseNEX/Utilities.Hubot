@@ -11,6 +11,14 @@
 # Author:
 #   wschuur
 #
+# Commands:
+#   "hubot setpass <user> <pass>" sets the basic auth pass
+#   "hubot define <name> <url>" adds a url to the list of ops calls
+#   "hubot return <name>" makes a post request to the defined url
+#   "hubot delete <name>" removes a url from the list of ops calls
+#   "hubot list <name>" displays the list of ops calls
+
+
 
 user = ""
 pass = ""

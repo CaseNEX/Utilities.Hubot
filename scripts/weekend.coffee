@@ -8,8 +8,7 @@
 #   None
 #
 # Commands:
-#   "hubot assemble" will post an assemble gif
-#   "hubot online assemble" will remind users to update their dev status
+#   "hubot weekend" will wish everyone a good weekend
 
 assembles = [
     "http://stream1.gifsoup.com/view1/1102847/admin-team-assemble-o.gif"

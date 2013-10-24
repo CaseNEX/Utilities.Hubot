@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   "hubot give ____ a gold star" will give someone a gold star!
+#   "hubot give <name> a gold star" will give someone a gold star!
 
 module.exports = (robot) ->
 
