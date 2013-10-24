@@ -61,5 +61,4 @@ module.exports = (robot) ->
         msg.send 'deleted ' + variableName
 
     robot.respond /list$/i, (msg) ->
-        for key of urls
-            msg.send key + " -> " + urls[key]  if urls.hasOwnProperty(key)
+        msg.send Object.keys(urls).join(", ")
