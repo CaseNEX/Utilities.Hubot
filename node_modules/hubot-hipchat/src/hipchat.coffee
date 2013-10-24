@@ -109,7 +109,7 @@ class HipChat extends Adapter
         regex = new RegExp "^@#{mention_name}\\b", "i"
         message = message.replace regex, "#{mention_name}: "
         handleMessage
-          getAuthor: => @robot.brain.userForName(from)
+          getAuthor: => @robot.brain.userForName(from) or {}
           message: message
           reply_to: channel
           room: @roomNameFromJid(channel)
