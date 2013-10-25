@@ -14,7 +14,7 @@
 # Commands:
 #   "hubot setpass <user> <pass>" sets the basic auth pass
 #   "hubot define <name> <url>" adds a url to the list of ops calls
-#   "hubot return <name>" makes a post request to the defined url
+#   "hubot get <name>" makes a post request to the defined url
 #   "hubot delete <name>" removes a url from the list of ops calls
 #   "hubot list <name>" displays the list of ops calls
 
@@ -49,13 +49,13 @@ module.exports = (robot) ->
         saveUrls(robot)
         msg.send 'Ok, ' + variableName + ' = ' + url
 
-    robot.respond /return (.*)$/i, (msg) ->
+    robot.respond /get (.*)$/i, (msg) ->
         variableName = msg.match[1]
         if urls.hasOwnProperty(variableName)
             user = robot.brain.data.username
             pass = robot.brain.data.pass
             auth = 'Basic ' + new Buffer(user + ':' + pass).toString('base64')
-            msg.http(urls[variableName] + '?room=' + (msg.message.room.replace("_", "+")))
+            msg.http(urls[variableName] + '?room=' + (msg.message.room.replace("_", "+")) + "&r=" + Math.random())
                 .headers(Authorization: auth)
                 .post() (err, res, body) ->
                     msg.send err if err
