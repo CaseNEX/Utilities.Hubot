@@ -21,8 +21,11 @@ module.exports = (robot) ->
 				for key, value of rhymes
         			if value.score >= 300
             			filtered.push(value.word)
-            	random = Math.floor(Math.random() * filtered.length)
-				msg.send filtered[random]
+				if filtered.length == 0
+					msg.send "No rhymes found, sorry!"
+				else
+					random = Math.floor(Math.random() * filtered.length)
+					msg.send filtered[random]
 
 
 	robot.respond /rhyme me( ([a-zA-Z]+))( (\d+))+/i, (msg) ->
@@ -35,10 +38,13 @@ module.exports = (robot) ->
 				for key, value of rhymes
         			if value.score >= 300
             			filtered.push(value.word)
-            	responses = []
-				while count -= 1
-					random = Math.floor(Math.random() * filtered.length)
-					responses[count-1] = filtered[random]
-				msg.send response for response in responses
+				if filtered.length == 0
+					msg.send "No rhymes found, sorry!"
+				else
+					responses = []
+					while count -= 1
+						random = Math.floor(Math.random() * filtered.length)
+						responses[count-1] = filtered[random]
+					msg.send response for response in responses
 
-				
+
