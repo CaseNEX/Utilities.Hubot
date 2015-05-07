@@ -36,6 +36,6 @@ module.exports = (robot) ->
         msg.send assemble
         msg.send "@all Dev Team, ASSEMBLE!"
 
-  robot.respond /online assemble/i, (msg) ->
-        msg.send "@all online assemble today, please update http://milestones.datacation.net"
+  robot.respond /email assemble/i, (msg) ->
+        msg.send "@all email standup today, send to standup@casenex.com"
         msg.send "http://i.imgur.com/5OAvU9a.gif" if Math.random() >= 0.8
