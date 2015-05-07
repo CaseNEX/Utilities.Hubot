@@ -2,6 +2,8 @@
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
 
+
+
 This version is designed to be deployed on [Heroku][heroku].
 
 [heroku]: http://www.heroku.com
